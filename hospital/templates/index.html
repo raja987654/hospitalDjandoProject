@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  {% load static %}
+  <title>Gestion hospitalière</title>
+  <link rel="icon" href="images/favicon.ico">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  
+
+  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    #myInput {
+      background-image: url('/css/searchicon.png');
+      background-position: 10px 10px;
+      background-repeat: no-repeat;
+      width: 20%;
+      font-size: 16px;
+      padding: 12px 20px 12px 40px;
+      border: 1px solid white;
+      margin-bottom: 12px;
+    }
+
+    .button1 {
+      border-radius: 15px;
+    }
+
+    .carousel-inner img {
+      width: 100%;
+      height: 100%;
+    }
+
+    /* Scrollbar Styles */
+    /* width */
+    ::-webkit-scrollbar {
+      width: 20px;
+    }
+
+   
+
+  
+
+    .nav-link:hover {
+      color: rgb(132, 198, 219) !important;
+      font-weight: bold;
+      background-color: #faf8fa;
+      border-radius: 10px;
+    }
+
+    .nav-link {
+      font-weight: bold;
+    }
+
+    .navbar-brand {
+      text-shadow: 1px 1px lightblue;
+    }
+
+    .navbar-brand:hover {
+      color: #80F5D3 !important;
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar navbar-expand-sm" style="background-color: rgb(83, 10, 96); border-bottom: 0.2px solid rgb(255, 0, 153)">
+    <a class="navbar-brand pl-5" href="#" style="color: white; font-weight: bold">Gestion hospitalière</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="collapsibleNavbar">
+      <ul class="navbar-nav pl-5 text-center">
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'index' %}" style="color: white"><ion-icon style="margin-right:2px" name="home-sharp"></ion-icon> Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'index' %}" id="#Formation" style="color: white"><ion-icon style="margin-right:2px" name="people"></ion-icon> About</a>
+        </li> 
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'contact' %}" style="color: white"><ion-icon style="margin-right:2px" name="people"></ion-icon> Contact</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'login' %}" style="color: white"><i class="fas fa-sign-in-alt" style="margin-right:2px"></i> Admin Login</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  {% block body %}
+  <head>
+    <style media="screen" id="index">
+      .jumbotron {
+        width: 100%;
+        height: 550px;
+        background-image: url('{% static "images/images/clinic_01.jpg" %}');
+        background-size: cover;
+        background-repeat: no-repeat;
+        opacity: 0;
+        animation: fade-in 1s forwards;
+      }
+
+      @keyframes fade-in {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+
+      .jumbotron h5, h3 {
+        text-align: center;
+      }
+
+      .alert {
+        margin: 0px;
+      }
+    </style>
+  </head>
+  <body>
+    <br>
+    <br>
+
+    <div class="jumbotron" style="margin-bottom: 0px; margin-top: 0px;">
+      <br><br>
+      <h5 class="display-3 glow">"Perfectionnement de la gestion hospitalière : vers une excellence opérationnelle"</h5>
+      <br><br><br><br>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+      $(document).ready(function() {
+        $('.jumbotron').animate({ opacity: 1 }, 1000);
+      });
+    </script>
+
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+    <section id="formation">
+      <div class="container mt-5">
+        <div class="row">
+          <div class="col-sm-6">
+            <div class="section-title">
+              <div class="section-subtitle">
+                Qui sommes-nous
+              </div>
+              <h2 class="section-main-title">
+                "Optimisez la gestion hospitalière avec notre application intuitive et efficace"
+              </h2>
+            </div>
+            <div class="about-item">
+              <p>Notre application de gestion hospitalière est conçue pour simplifier les tâches administratives et améliorer l'efficacité des établissements de santé. Elle offre une solution complète pour la gestion des patients, la coordination des ressources médicales et la communication interne. Grâce à notre interface conviviale, les professionnels de la santé peuvent accéder facilement aux dossiers médicaux, planifier les rendez-vous et partager les informations importantes en temps réel.</p>
+              <a href="{% url 'contact' %}" class="button1">Contactez-nous</a>
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <img src="{% static 'images/images/doctor_01.jpg' %}" alt="Image" class="about-img">
+          </div>
+        </div>
+      </div>
+    </section>
+
+   
+  </body>
+  {% endblock %}
+
+  <footer class="container-fluid text-center mt-5">
+    <div class="row">
+      <div class="col-md-12">
+        <p class="text-muted mb-0">&copy; 2023 Gestion hospitalière. Tous droits réservés.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  <script src="//cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+
+  <script>
+    $(document).ready(function() {
+      $('#myTable').DataTable();
+    });
+  </script>
+</body>
+</html>

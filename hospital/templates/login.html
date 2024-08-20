@@ -1,0 +1,133 @@
+{% extends 'navigation.html' %}
+{% load static %}
+{% block body %}
+
+<html lang="fr" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Connexion administrateur</title>
+
+  <style type="text/css">
+    body {
+     
+      background-color: #e8dce8;
+      font-family: 'Roboto', sans-serif;
+    }
+
+    a:link {
+      text-decoration: none;
+    }
+
+    .note {
+      text-align: center;
+      height: 80px;
+      background: -webkit-linear-gradient(left, #777577, #9e7b8f);
+      color: #fff;
+      font-weight: bold;
+      line-height: 80px;
+    }
+
+    .form-content {
+      padding: 4%;
+      border: 1px solid #ced4da;
+      margin-bottom: 1%;
+      text-align: center;
+      animation: fadeIn 1s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      0% {
+        opacity: 0;
+      }
+      100% {
+        opacity: 1;
+      }
+    }
+
+    .form-control {
+      border-radius: 1.5rem;
+      text-align: center;
+      animation: slideIn 1s ease-in-out;
+    }
+
+    @keyframes slideIn {
+      0% {
+        transform: translateY(-50px);
+        opacity: 0;
+      }
+      100% {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+
+    .btnSubmit {
+      border: none;
+      border-radius: 1.5rem;
+      padding: 1%;
+      width: 30%;
+      cursor: pointer;
+      background: #670464;
+      color: #fff;
+      animation: scaleIn 1s ease-in-out;
+    }
+
+    @keyframes scaleIn {
+      0% {
+        transform: scale(0);
+      }
+      100% {
+        transform: scale(1);
+      }
+    }
+  </style>
+</head>
+<body style = "background-image : url({% static 'images/about1.jpg' %}) ; height: 900px;">
+
+{% if error == "no" %}
+     <script>
+       alert('Logged In Successfully');
+       window.location=('{% url 'admin_home' %}');
+     </script>
+{% endif %}
+
+{% if error == "yes" %}
+     <script>
+       alert('Something went wrong, Try Again');
+     </script>
+{% endif %}
+
+<br><br><br><br>
+<form method="post">
+  {% csrf_token %}
+  <div class="container register-form mt-2" style="width: 800px; ">
+    <div class="form">
+      <div class="note">
+        <p>Admin</p>
+      </div>
+
+      <div class="form-content">
+        <div class="row mt-5">
+          <div class="col-md-12">
+            <div class="form-group">
+              <input type="text" name="uname" class="form-control py-3" placeholder="Username">
+            </div>
+          </div>
+
+          <div class="col-md-12">
+            <div class="form-group">
+              <input type="password" name="pwd" class="form-control py-3" placeholder=" Password"><br>
+            </div>
+          </div>
+        </div>
+        <button type="submit" class="btnSubmit">Login</button>
+      </div>
+    </div>
+  </div>
+</form>
+
+
+
+
+{% endblock %}

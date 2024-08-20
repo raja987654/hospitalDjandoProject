@@ -1,0 +1,91 @@
+{% extends 'navigation.html' %}
+{% load static %}
+{% block body %}
+
+{% if error == "no" %}
+<script>
+   alert('Your Message has been Sent Successfully');
+   window.location=('{% url 'contact' %}');
+</script>
+{% endif %}
+
+{% if error == "yes" %}
+<script>
+    alert('Something went wrong. Please try again');
+</script>
+{% endif %}
+
+<section style = "background-image : url({% static 'images/about1.jpg' %}) ; height: 900px;">
+
+    <div class="container py-5 mt-3">
+        <div class="card">
+            <div class="card-body">
+                <h1 class="font-weight-light text-center py-3">Contactez-nous</h1>
+                <div class="container py-5 mt-3">
+                    <h2 class="font-weight-light text-center py-3">Avez-vous des questions ou voulez-vous prendre rendez-vous?</h2>
+                    <h3 class="font-weight-light text-center py-3">Laissez vos coordonnées et nous vous contacterons!</h3>
+                </div>
+                <div class="row">
+                    <div class="col-lg-6 col-md-12 col-sm-12">
+                        <div class="row pt-3">
+                            <div class="col-lg-1 offset-1 col-md-2 col-sm-2">
+                                <span style="font-size: 30px; color: cadetblue"><i class="fas fa-map-marker-alt"></i></span>
+                            </div>
+                            <div class="col-lg-10 col-md-9 col-sm-9">
+                                <h3 class="font-weight-light">ADRESSE</h3>
+                                <p>2 Av de l'UMA, Résidence CITY 2 <br>
+                                La Soukra - 2035 Ariana - Tunis</p>
+                            </div>
+                        </div>
+                        <div class="row pt-3">
+                            <div class="col-lg-1 offset-1 col-md-2 col-sm-2">
+                                <span style="font-size: 30px; color: coral"><i class="fas fa-phone-volume"></i></span>
+                            </div>
+                            <div class="col-lg-10 col-md-9 col-sm-9">
+                                <h3 class="font-weight-light">TÉLÉPHONE</h3>
+                                <p>(+216) 70.700.044<br>
+                                (+216) 26.200.994</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6 col-md-12 col-sm-12">
+                        <form method="post">
+                            {% csrf_token %}
+                            <div class="form-row">
+                                <div class="form-group col-lg-6 col-md-12 col-sm-12">
+                                    <label for="name">nom et prénom</label>
+                                    <input type="text" id="name" name="name" class="form-control" placeholder="Full Name" required>
+                                </div>
+                                <div class="form-group col-lg-6 col-md-12 col-sm-12">
+                                    <label for="contact">numéro du telephone </label>
+                                    <input type="text" id="contact" name="contact" class="form-control" placeholder="Contact Number" required>
+                                </div>
+                                <div class="form-group col-lg-6 col-md-12 col-sm-12">
+                                    <label for="email">Email</label>
+                                    <input type="email" id="email" name="email" class="form-control" placeholder="Email ID" required>
+                                </div>
+                                <div class="form-group col-lg-6 col-md-12 col-sm-12">
+                                    <label for="subject">Sujet</label>
+                                    <input type="text" id="subject" name="subject" class="form-control" placeholder="Enter Subject" required>
+                                </div>
+                                <div class="form-group col-lg-12 col-md-12 col-sm-12">
+                                    <label for="message">Message</label>
+                                    <textarea id="message" name="message" class="form-control" placeholder="Message....."></textarea>
+                                </div>
+                                <div class="form-group col-lg-6 col-md-12 col-sm-12">
+                                    <input type="submit" value="Envoyer" class="form-control btn btn-primary">
+                                </div>
+                                <div class="form-group col-lg-6 col-md-12 col-sm-12">
+                                    <input type="reset" value="Annuler" class="form-control btn btn-primary">
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}
